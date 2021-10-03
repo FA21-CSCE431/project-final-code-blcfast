@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Picture</th>
+      <th>ID</th>
       <th>Amount</th>
       <th>Reason</th>
       <th colspan="3"></th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @receipts.each do |receipt| %>
       <tr>
-        <td><%= receipt.picture %></td>
+        <td><%= receipt.id %></td>
         <td><%= receipt.amount %></td>
         <td><%= receipt.reason %></td>
         <td><%= link_to 'Show', receipt %></td>
