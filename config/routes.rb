@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/edit'
+  get 'users/new'
+  get 'users/create'
+  get 'users/destroy'
   resources :receipts
 
   root 'receipts#index'
