@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 
 #new stuff
 gem 'devise'
-gem 'omniauth'
+gem 'omniauth', '~>1.9.1'
 gem 'omniauth-google-oauth2'
 
 # Use Active Storage variant
