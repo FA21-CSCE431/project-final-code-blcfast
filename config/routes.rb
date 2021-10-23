@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  root 'receipts#index'
+  get 'users/edit'
+  get 'users/new'
+  get 'users/create'
+  get 'users/destroy'
   resources :receipts
+
+  root 'receipts#index'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
   devise_scope :admin do
     get 'admins/sign_in', to: 'admins/sessions#new', as: :new_admin_session

@@ -4,7 +4,7 @@
     <title>BLC-FAST-APP</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style>
@@ -20,6 +20,7 @@
         <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
       <% end -%>
     <% end %>
+  	<%= render "layouts/navbar" %>
     <%= yield %>
   </body>
 </html>

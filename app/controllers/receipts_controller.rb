@@ -1,9 +1,21 @@
 class ReceiptsController < ApplicationController
   before_action :set_receipt, only: %i[ show edit update destroy ]
+  @@sort_dir = 1 # desc
 
   # GET /receipts or /receipts.json
   def index
     @receipts = Receipt.all
+      if params[:order] == "date"
+        if @@sort_dir == 1
+          @receipts = Receipt.all.sort_by {|receipt| receipt.date}
+        elsif @@sort_dir == -1
+          @receipts = Receipt.all.sort_by {|receipt| receipt.date}.reverse!
+        end
+        @@sort_dir *= -1
+      elsif params[:order] == "amount"
+        @receipts = Receipt.all.sort_by {|receipt| @@sort_dir * receipt.amount}
+        @@sort_dir *= -1
+      end
   end
 
   # GET /receipts/1 or /receipts/1.json
@@ -64,6 +76,6 @@ class ReceiptsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def receipt_params
-      params.require(:receipt).permit(:picture, :amount, :reason)
+      params.require(:receipt).permit(:picture, :amount, :reason, :date)
     end
 end
