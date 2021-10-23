@@ -4,6 +4,9 @@ class ReceiptsController < ApplicationController
   # GET /receipts or /receipts.json
   def index
     @receipts = Receipt.all
+      if params[:order] == "date"
+        @receipts = Receipt.all.sort_by {|receipt| receipt.date}
+      end
   end
 
   # GET /receipts/1 or /receipts/1.json
@@ -64,6 +67,6 @@ class ReceiptsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def receipt_params
-      params.require(:receipt).permit(:picture, :amount, :reason)
+      params.require(:receipt).permit(:picture, :amount, :reason, :date)
     end
 end

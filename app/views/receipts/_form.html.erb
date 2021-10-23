@@ -26,6 +26,11 @@
     <%= form.text_field :reason %>
   </div>
 
+  <div class="field">
+    <%= form.label :date, "Date of Transaction" %>
+    <%= form.date_select :date %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

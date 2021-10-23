@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Picture:</strong>
-  <img src="<%= url_for(@receipt.picture) %>"/>
+  <img src="<%= url_for(@receipt.picture) %>" width="300" height="400"/>
 </p>
 
 <p>
   <strong>Amount:</strong>
-  <%= @receipt.amount %>
+  $<%= @receipt.amount %>
 </p>
 
 <p>
   <strong>Reason:</strong>
   <%= @receipt.reason %>
+</p>
+
+<p>
+  <strong>Date of Transaction:</strong>
+  <%= @receipt.date %>
 </p>
 
 <%= link_to 'Edit', edit_receipt_path(@receipt) %> |
