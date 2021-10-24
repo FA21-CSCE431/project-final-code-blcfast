@@ -19,5 +19,10 @@
   <%= @receipt.date %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @receipt.status %>
+</p>
+
 <%= link_to 'Edit', edit_receipt_path(@receipt) %> |
 <%= link_to 'Back', receipts_path %>

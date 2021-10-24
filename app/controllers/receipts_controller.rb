@@ -15,6 +15,13 @@ class ReceiptsController < ApplicationController
       elsif params[:order] == "amount"
         @receipts = Receipt.all.sort_by {|receipt| @@sort_dir * receipt.amount}
         @@sort_dir *= -1
+      elsif params[:order] == "status"
+        if @@sort_dir == 1
+          @receipts = Receipt.all.sort_by {|receipt| receipt.status}
+        elsif @@sort_dir == -1
+          @receipts = Receipt.all.sort_by {|receipt| receipt.status}.reverse!
+        end
+        @@sort_dir *= -1
       end
   end
 
@@ -76,6 +83,6 @@ class ReceiptsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def receipt_params
-      params.require(:receipt).permit(:picture, :amount, :reason, :date)
+      params.require(:receipt).permit(:picture, :amount, :reason, :date, :status)
     end
 end

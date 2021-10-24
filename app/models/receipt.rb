@@ -4,4 +4,5 @@ class Receipt < ApplicationRecord
   validates :reason, presence: true
   validates :amount, presence: true
   validates :date, presence: true
+  validates :status, presence: true
 end
