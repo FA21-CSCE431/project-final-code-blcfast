@@ -17,13 +17,23 @@
   </div>
 
   <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_field :reason %>
+  </div>
+
+  <div class="field">
     <%= form.label :amount %>
     <%= form.text_field :amount %>
   </div>
 
   <div class="field">
-    <%= form.label :reason %>
-    <%= form.text_field :reason %>
+    <%= form.label :date, "Date of Transaction" %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status%>
+    <%= form.select :status, ['Active', 'Completed'] %>
   </div>
 
   <div class="actions">
