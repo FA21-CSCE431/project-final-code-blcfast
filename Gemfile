@@ -30,7 +30,6 @@ gem "rspec"
 gem 'devise'
 gem 'omniauth', '~>1.9.1'
 gem 'omniauth-google-oauth2'
->>>>>>> c98b339753ef075087e132563292c46378985dcf
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
