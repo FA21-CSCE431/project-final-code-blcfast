@@ -13,20 +13,19 @@ pre {
   padding: 10px;
   font-size: 11px; }
 
-a {
+.login a {
   color: #000; }
 
-a:visited {
+.login a:visited {
   color: #666; }
 
-a:hover {
-  color: #fff;
-  background-color: #000; }
+.login a:hover {
+  color: #fff;}
 
-th {
+.login th {
   padding-bottom: 5px; }
 
-td {
+.login td {
   padding: 0 5px 7px; }
 
 div.field,

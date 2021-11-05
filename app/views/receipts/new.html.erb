@@ -1,5 +1,47 @@
+<head>
+    <title> BLCFAST </title>
+    <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="translate.css">
+    <link rel="stylesheet" id="style_sheet" type="text/css" href="style.css">
+    <script src="translate.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="titlebar">
+            <a>Business Leaders for Change</a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="navBar">
+            <div class="navBar-left">
+                <ul>
+                    <li><a class="active" href="/receipts/index.html.erb" style="text-decoration: none;">Receipts</a></li>
+                    <li><a href="___.html.erb" style="text-decoration: none;">Reimbursement</a></li>
+                    <li><a href="___.html.erb" style="text-decoration: none;">Expense Types</a></li>
+                    <li><a href="___.html.erb" style="text-decoration: none;">Officers</a></li>
+                </ul>
+            </div>
+
+            <div class="navBar-right">
+                <ul>
+                  <div class="signout-link">
+                    <%= link_to "Sign Out", destroy_admin_session_path %>
+                  </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 <h1>New Receipt</h1>
 
 <%= render 'form', receipt: @receipt %>
 
-<%= link_to 'Back', receipts_path %>
+<!-- <%= link_to 'Back', receipts_path %> -->
