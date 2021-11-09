@@ -45,6 +45,11 @@ class ExpenseTypesController < ApplicationController
   end
 
   def destroy
+    @expense_type.destroy
+    respond_to do |format|
+      format.html { redirect_to expense_types_index_path, notice: "Expense Type was successfully destroyed." }
+      format.json { head :no_content }
+    end
   end
   
   private

@@ -32,8 +32,8 @@ th, td {
         <td><%= expense_type.etype %></td>
         <td><%= expense_type.description %></td>
         <td><%= link_to 'Show', expense_type %></td>
-        <td><%= link_to 'Edit', expense_types_edit_path(expense_type) %></td>
-        <td><%= link_to 'Delete', expense_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_expense_type_path(expense_type) %></td>
+        <td><%= link_to 'Delete', expense_type, method: :delete, data: { confirm: 'Are you sure you want to delete this expense type?' } %></td>
       </tr>
     <% end %>
   </tbody>
