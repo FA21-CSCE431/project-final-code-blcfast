@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'expense_type/new'
+  get 'expense_type/create'
+  get 'expense_type/index'
+  get 'expense_type/show'
+  get 'expense_type/edit'
+  get 'expense_type/update'
+  get 'expense_type/delete'
+  get 'expense_type/destroy'
   get 'users/edit'
   get 'users/new'
   get 'users/create'

@@ -1,0 +1,40 @@
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Expense Types</h1>
+
+<%= button_to 'New Expense Type', expense_type_new_path, method: :get %>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Expense Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expense_types.each do |etype| %>
+      <tr>
+        <td><%= etype.etype %></td>
+        <td><%= etype.description %></td>
+        <td><%= link_to 'Show', etype %></td>
+        <td><%= link_to 'Edit', expense_type_edit_path(etype) %></td>
+        <td><%= link_to 'Delete', etype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
