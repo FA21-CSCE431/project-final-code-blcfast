@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'users/create'
   get 'users/destroy'
   resources :receipts
+  resources :expense_types
 
   root 'receipts#index'
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }

@@ -1,2 +1,5 @@
-<h1>ExpenseType#new</h1>
-<p>Find me in app/views/expense_type/new.html.erb</p>
+<h1>New Expense Type</h1>
+
+<%= render 'form', expense_type: @expense_type %>
+
+<%= link_to 'Back', expense_type_index_path %>
