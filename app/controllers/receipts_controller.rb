@@ -1,29 +1,40 @@
-class ReceiptsController < ApplicationController
+# frozen_string_literal: true
+
+class ReceiptsController < ApplicationController # rubocop:todo Style/Documentation
   before_action :set_receipt, only: %i[show edit update destroy]
-  @@sort_dir = 1 # desc
+  @@sort_dir = 1 # desc # rubocop:todo Style/ClassVars
 
   # GET /receipts or /receipts.json
-  def index
+  # rubocop:todo Metrics/PerceivedComplexity
+  # rubocop:todo Metrics/MethodLength
+  # rubocop:todo Metrics/AbcSize
+  def index # rubocop:todo Metrics/CyclomaticComplexity, Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
     @receipts = Receipt.all
-    if params[:order] == 'date'
-      if @@sort_dir == 1
-        @receipts = Receipt.all.sort_by { |receipt| receipt.date }
-      elsif @@sort_dir == -1
-        @receipts = Receipt.all.sort_by { |receipt| receipt.date }.reverse!
+    case params[:order]
+    when 'date'
+      case @@sort_dir
+      when 1
+        @receipts = Receipt.all.sort_by(&:date)
+      when -1
+        @receipts = Receipt.all.sort_by(&:date).reverse!
       end
-      @@sort_dir *= -1
-    elsif params[:order] == 'amount'
+      @@sort_dir *= -1 # rubocop:todo Style/ClassVars
+    when 'amount'
       @receipts = Receipt.all.sort_by { |receipt| @@sort_dir * receipt.amount }
-      @@sort_dir *= -1
-    elsif params[:order] == 'status'
-      if @@sort_dir == 1
-        @receipts = Receipt.all.sort_by { |receipt| receipt.status }
-      elsif @@sort_dir == -1
-        @receipts = Receipt.all.sort_by { |receipt| receipt.status }.reverse!
+      @@sort_dir *= -1 # rubocop:todo Style/ClassVars
+    when 'status'
+      case @@sort_dir
+      when 1
+        @receipts = Receipt.all.sort_by(&:status)
+      when -1
+        @receipts = Receipt.all.sort_by(&:status).reverse!
       end
-      @@sort_dir *= -1
+      @@sort_dir *= -1 # rubocop:todo Style/ClassVars
     end
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/PerceivedComplexity
 
   # GET /receipts/1 or /receipts/1.json
   def show; end
