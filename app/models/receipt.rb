@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Receipt < ApplicationRecord
   has_one_attached :picture
   validates :picture, presence: true

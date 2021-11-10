@@ -1,4 +1,6 @@
-require "active_support/core_ext/integer/time"
+# frozen_string_literal: true
+
+require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -73,10 +75,7 @@ Rails.application.configure do
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
-
-  
 end
-
 
 # Auth stuff
 ENV['GOOGLE_OAUTH_CLIENT_ID'] = '538782633856-llid7949gv23ktau4jsg8pk9iig1r411.apps.googleusercontent.com'
