@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> BLCFAST </title>
+    <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="translate.css">
+    <link rel="stylesheet" id="style_sheet" type="text/css" href="style.css">
+    <script src="translate.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="titlebar">
+            <a>Business Leaders for Change</a>
+        </div>
+    </div>
+
+    <div class="login">
+        <h1>Welcome to Business Leaders for Change!</h1>
+        <h2>Log in to the Admin Dashboard.</h2>
+        <div class="login-link">
+            <%= link_to "Sign in with Google", admin_google_oauth2_omniauth_authorize_path %>
+        </div>
+    </div>
+
+</body>
+
+</html>
