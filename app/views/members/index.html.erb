@@ -1,6 +1,55 @@
-<h1>Organization Members</h1>
-<ul>
+
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<head>
+    <title> BLCFAST </title>
+    <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="translate.css">
+    <link rel="stylesheet" id="style_sheet" type="text/css" href="style.css">
+    <script src="translate.js"></script>
+</head>
+
+
+<h1>Members</h1>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reason</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th colspan="2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @members.each do |member| %>
-        <li><%= link_to member.name + " (" + member.role + ")", member_path(member) %></li>
+      <tr>
+        <td><%= member.name %></td>
+        <td><%= member.email %></td>
+        <td><%= member.role %></td>
+        # <td><%= link_to 'Edit', edit_receipt_path(member) %></td>
+        <td><%= link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
-</ul>
+  </tbody>
+</table>
+
+<%= button_to 'New Member', new_receipt_path, method: :get %>
