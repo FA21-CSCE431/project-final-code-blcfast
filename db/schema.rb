@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_023_234_838) do # rubocop:todo Metrics/BlockLength
+ActiveRecord::Schema.define(version: 20_211_105_202_929) do # rubocop:todo Metrics/BlockLength
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 20_211_023_234_838) do # rubocop:todo Metri
 
   create_table 'expenditures', force: :cascade do |t|
     t.decimal 'total'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'expense_types', force: :cascade do |t|
+    t.string 'etype'
+    t.string 'description'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
   end
