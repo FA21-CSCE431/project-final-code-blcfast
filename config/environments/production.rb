@@ -120,3 +120,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end
+
+# Auth stuff
+ENV['GOOGLE_OAUTH_CLIENT_ID'] = '538782633856-llid7949gv23ktau4jsg8pk9iig1r411.apps.googleusercontent.com'
+ENV['GOOGLE_OAUTH_CLIENT_SECRET'] = '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'

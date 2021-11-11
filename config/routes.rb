@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
+  
   get 'expense_types/new'
   get 'expense_types/create'
   get 'expense_types/index'
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/create'
   get 'users/destroy'
+  resources :members
   resources :receipts
   resources :expense_types
 
