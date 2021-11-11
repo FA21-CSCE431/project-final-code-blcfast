@@ -21,9 +21,9 @@
         <div class="navBar">
             <div class="navBar-left">
                 <ul>
-                    <li><a class="active" href="<%= receipts_path %>" style="text-decoration: none;">Receipts</a></li>
+                    <li><a href="<%= receipts_path %>" style="text-decoration: none;">Receipts</a></li>
                     <li><a href="___.html.erb" style="text-decoration: none;">Reimbursement</a></li>
-                    <li><a href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
+                    <li><a class="active" href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
                     <li><a href="___.html.erb" style="text-decoration: none;">Officers</a></li>
                 </ul>
             </div>
@@ -41,9 +41,43 @@
 </body>
 
 
-<h1>Editing Receipt</h1>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+</style>
 
-<%= render 'form', receipt: @receipt %>
+<p id="notice"><%= notice %></p>
 
-<%= link_to 'Show', @receipt %> |
-<%= link_to 'Back', receipts_path %>
+<h1>Expense Types</h1>
+
+<%= button_to 'New Expense Type', expense_types_new_path, method: :get %>
+
+<br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Expense Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @expense_types.each do |expense_type| %>
+      <tr>
+        <td><%= expense_type.etype %></td>
+        <td><%= expense_type.description %></td>
+        <td><%= link_to 'Show', expense_type %></td>
+        <td><%= link_to 'Edit', edit_expense_type_path(expense_type) %></td>
+        <td><%= link_to 'Delete', expense_type, method: :delete, data: { confirm: 'Are you sure you want to delete this expense type?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

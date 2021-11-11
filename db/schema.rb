@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 2021_11_05_202929) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+<<<<<<< HEAD
   create_table "receipts", force: :cascade do |t|
     t.binary "picture"
     t.decimal "amount"
@@ -74,6 +75,23 @@ ActiveRecord::Schema.define(version: 2021_11_05_202929) do
     t.datetime "updated_at", precision: 6, null: false
     t.date "date"
     t.string "status"
+=======
+  create_table 'expense_types', force: :cascade do |t|
+    t.string 'etype'
+    t.string 'description'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+  end
+
+  create_table 'receipts', force: :cascade do |t|
+    t.binary 'picture'
+    t.decimal 'amount'
+    t.string 'reason'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.date 'date'
+    t.string 'status'
+>>>>>>> 96de76f1c4c1baa3cc9f037f0f1271d7dd281f16
   end
 
   create_table "users", force: :cascade do |t|
