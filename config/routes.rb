@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  get 'members/index'
-  get 'members/show'
-  get 'members/new'
-  get 'members/edit'
+
   resources :members
+  get 'users/edit'
+  get 'users/new'
+  get 'users/create'
+  get 'users/destroy'
+  resources :receipts
+  
   root 'receipts#index'
   resources :receipts
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
