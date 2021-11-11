@@ -1,0 +1,16 @@
+<%= form_with(model: expense_type) do |form| %>
+
+  <div class="field">
+    <%= form.label :etype, "Expense Type" %>
+    <%= form.text_field :etype %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
