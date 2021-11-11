@@ -1,7 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-    <%= @member.name %>
-</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @member.name %>
+</p>
 
-<%= link_to 'Remove', @member, method: :delete, data: { confirm: 'Are you sure?' } %>
+<p>
+  <strong>Email:</strong>
+  <%= @member.email %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @member.role %>
+</p>
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>
