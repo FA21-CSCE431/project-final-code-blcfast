@@ -11,7 +11,12 @@ module Admins
         sign_in_and_redirect admin, event: :authentication
         $user_email = auth.info.email
         $user_name = auth.info.name
-        $user_role = "Officer"
+        $user_role = "outsider"
+        members_controller = MembersController.new
+        members_controller.request = request
+        members_controller.response = response
+        members_controller.find_user_role
+
       else
         flash[:alert] =
           t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
