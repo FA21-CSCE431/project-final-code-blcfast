@@ -32,7 +32,7 @@
 
             <div class="navBar-right">
                 <ul>
-                    <%= $user_name %>
+                    <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
                     <div class="signout-link">
                         <%= link_to "Sign Out", destroy_admin_session_path %>
                     </div>

@@ -112,7 +112,7 @@
 .wrapper .navBar .navBar-right .signout-link {
     font-size: 17px;
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 section {
