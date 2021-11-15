@@ -36,6 +36,11 @@
     <%= form.select :status, ['Active', 'Completed'] %>
   </div>
 
+  <div class="field">
+    <%= form.label :expense_type%>
+    <%= collection_select( :ExpenseType, :etype, ExpenseType.all, :etype, :etype, prompt: true) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
