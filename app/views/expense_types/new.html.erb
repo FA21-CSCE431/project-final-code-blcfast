@@ -9,14 +9,6 @@
     <script src="translate.js"></script>
 </head>
 
-
-<style>
-.back {
-    margin-left: 200px;
-}
-</style>
-
-
 <body>
 
     <div class="wrapper">
@@ -40,7 +32,7 @@
 
             <div class="navBar-right">
                 <ul>
-                <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
+                <%= $user_name %>
                   <div class="signout-link">
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                   </div>
@@ -52,23 +44,11 @@
 </body>
 
 <% if $user_role == "Admin" %>
-<div class="section-title">
-    <h1>New Expense Type</h1>
-</div>
+
+<h1>New Expense Type</h1>
 
 <%= render 'form', expense_type: @expense_type %>
 
-<div class="back">
-    <%= link_to 'Back', expense_types_index_path %>
-</div>
-
-<body>
-    <center>
-      <div class="logo">
-        <%= image_tag("Untitled_Artwork.png", height: '420', width: '420', :alt => "BLC logo") %>
-      </div>
-    </center
-</body>
+<%= link_to 'Back', expense_types_index_path %>
 
 <% end %>
-
