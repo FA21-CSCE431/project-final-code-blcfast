@@ -9,6 +9,14 @@
     <script src="translate.js"></script>
 </head>
 
+
+<style>
+.back {
+    margin-left: 200px;
+}
+</style>
+
+
 <body>
 
     <div class="wrapper">
@@ -45,4 +53,6 @@
 
 <%= render 'form', expense_type: @expense_type %>
 
-<%= link_to 'Back', expense_types_index_path %>
+<div class="back">
+    <%= link_to 'Back', expense_types_index_path %>
+</div>

@@ -44,6 +44,7 @@
 <style>
 table, th, td {
   border: 1px solid black;
+  margin-left: 200px;
 }
 th, td {
   padding-top: 10px;
@@ -51,13 +52,18 @@ th, td {
   padding-left: 10px;
   padding-right: 10px;
 }
+.newET {
+  margin-left: 200px;
+}
 </style>
 
 <p id="notice"><%= notice %></p>
 
 <h1>Expense Types</h1>
 
-<%= button_to 'New Expense Type', expense_types_new_path, method: :get %>
+<div class="newET">
+  <%= button_to 'New Expense Type', expense_types_new_path, method: :get %>
+</div>
 
 <br>
 
@@ -81,3 +87,9 @@ th, td {
     <% end %>
   </tbody>
 </table>
+
+<body>
+      <div class="logo">
+        <%= image_tag("Untitled_Artwork.png", :alt => "BLC logo") %>
+      </div>
+</body>

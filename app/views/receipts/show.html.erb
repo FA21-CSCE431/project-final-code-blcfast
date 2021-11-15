@@ -9,6 +9,15 @@
     <script src="translate.js"></script>
 </head>
 
+<style>
+  p {
+    margin-left: 200px;
+  }
+  .edit-back {
+    margin-left: 200px;
+  }
+</style>
+
 <body>
 
     <div class="wrapper">
@@ -67,5 +76,7 @@
   <%= @receipt.status %>
 </p>
 
-<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
-<%= link_to 'Back', receipts_path %>
+<div class= "edit-back">
+  <%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+  <%= link_to 'Back', receipts_path %>
+</div>

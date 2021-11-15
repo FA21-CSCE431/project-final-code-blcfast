@@ -33,6 +33,10 @@
     overflow: auto;
 }
 
+h1 {
+    margin-left: 200px;
+}
+
 .banner h2 {
     padding-top: 0px;
     margin-bottom: 0px;
@@ -128,4 +132,3 @@ section {
 .login .login-link {
     font-size: 20px;
 }
-

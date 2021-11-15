@@ -1,12 +1,16 @@
 <style>
 table, th, td {
   border: 1px solid black;
+  margin-left: 200px;
 }
 th, td {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
+}
+.newReceipt {
+  margin-left: 200px;
 }
 </style>
 
@@ -57,7 +61,9 @@ th, td {
 
 <h1>Receipts</h1>
 
-<%= button_to 'New Receipt', new_receipt_path, method: :get %>
+<div class="newReceipt">
+  <%= button_to 'New Receipt', new_receipt_path, method: :get %>
+</div>
 
 <br>
 
@@ -86,3 +92,9 @@ th, td {
     <% end %>
   </tbody>
 </table>
+
+<body>
+      <div class="logo">
+        <%= image_tag("Untitled_Artwork.png", :alt => "BLC logo") %>
+      </div>
+</body>

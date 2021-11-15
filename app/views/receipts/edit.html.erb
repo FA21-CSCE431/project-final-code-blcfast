@@ -9,6 +9,12 @@
     <script src="translate.js"></script>
 </head>
 
+<style>
+  .show-back {
+    margin-left: 200px;
+  }
+</style>
+
 <body>
 
     <div class="wrapper">
@@ -45,5 +51,7 @@
 
 <%= render 'form', receipt: @receipt %>
 
-<%= link_to 'Show', @receipt %> |
-<%= link_to 'Back', receipts_path %>
+<div class="show-back">
+    <%= link_to 'Show', @receipt %> |
+    <%= link_to 'Back', receipts_path %>
+</div>

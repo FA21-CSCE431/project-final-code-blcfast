@@ -1,12 +1,16 @@
 <style>
 table, th, td {
   border: 1px solid black;
+  margin-left: 200px;
 }
 th, td {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
+}
+.newMember {
+  margin-left: 200px;
 }
 </style>
 
@@ -56,6 +60,12 @@ th, td {
 
 <h1>Members</h1>
 
+<div class="newMember">
+  <%= button_to 'New Member', new_member_path, method: :get %>
+</div>
+
+<br>
+
 <table>
   <thead>
     <tr>
@@ -80,6 +90,10 @@ th, td {
   </tbody>
 </table>
 
-<br>
 
-<%= button_to 'New Member', new_member_path, method: :get %>
+
+<body>
+      <div class="logo">
+        <%= image_tag("Untitled_Artwork.png", :alt => "BLC logo") %>
+      </div>
+</body>
