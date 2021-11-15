@@ -39,9 +39,9 @@ th, td {
         <div class="navBar">
             <div class="navBar-left">
                 <ul>
-                    <li><a class="active" href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
+                    <li><a href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
                     <% if $user_role == "Admin" %>
-                        <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
+                        <li><a class="active" href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
                         <li><a href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
                         <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
                     <% end %>
@@ -61,8 +61,9 @@ th, td {
 
 </body>
 
-
-<h1>Receipts</h1>
+<div class="section-title">
+  <h1>Receipts</h1>
+</div>
 
 <div class="newReceipt">
   <%= button_to 'New Receipt', new_receipt_path, method: :get %>
@@ -73,11 +74,11 @@ th, td {
 <table>
   <thead>
     <tr>
-      <th>Reason</th>
+    <th>Expense Type</th>
       <th><%= link_to "Amount", receipts_path(order: 'amount') %></th>
       <th><%= link_to "Date of Transaction", receipts_path(order: 'date') %></th>
       <th><%= link_to "Status", receipts_path(order: 'status') %></th>
-      <th>Expense Type</th>
+      <th>Description</th>
       <th colspan="3">Actions</th>
     </tr>
   </thead>
@@ -85,10 +86,11 @@ th, td {
   <tbody>
     <% @receipts.each do |receipt| %>
       <tr>
-        <td><%= receipt.reason %></td>
+        <td><%= receipt.expense_type %></td> 
         <td>$<%= receipt.amount %></td>
         <td><%= receipt.date %></td>
         <td><%= receipt.status %></td>
+        <td><%= receipt.reason %></td>
         <% if $user_role == "Admin" %>
           <td><%= link_to 'Show', receipt %></td>
           <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>

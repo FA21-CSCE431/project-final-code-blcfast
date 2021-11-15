@@ -50,8 +50,10 @@
 </body>
 <% if $user_role == "Admin" %>
 
+  <div class="section-title">
     <h1>Editing Receipt</h1>
-
+  </div>
+  
     <%= render 'form', receipt: @receipt %>
 
 

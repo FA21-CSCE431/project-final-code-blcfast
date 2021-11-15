@@ -62,7 +62,9 @@ th, td {
 </body>
 <% if $user_role == "Admin" %>
 
-<h1>Members</h1>
+<div class="section-title">
+  <h1>Members</h1>
+</div>
 
 <div class="newMember">
   <%= button_to 'New Member', new_member_path, method: :get %>

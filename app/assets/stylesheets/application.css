@@ -33,7 +33,7 @@
     overflow: auto;
 }
 
-h1 {
+.section-title h1 {
     margin-left: 200px;
 }
 

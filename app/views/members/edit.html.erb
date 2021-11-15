@@ -49,9 +49,10 @@
 
 </body>
 <% if $user_role == "Admin" %>
-
-    <h1>Editing Member</h1>
-
+    <div class="section-title">
+        <h1>Editing Member</h1>
+    </div>
+    
     <%= render 'form', member: @member %>
 
 <div class="show-back">
