@@ -19,6 +19,16 @@ class MembersController < ApplicationController
   def edit
   end
 
+  def user_role
+    file = File.open("some_file_name.txt", "w")
+    file.puts "I wrote this with ruby!"
+    file.close
+      # if member.email == $user_email
+      #   $user_role = member.role
+      # end
+    # end
+  end
+
   # POST /members or /members.json
   def create
     @member = Member.new(member_params)

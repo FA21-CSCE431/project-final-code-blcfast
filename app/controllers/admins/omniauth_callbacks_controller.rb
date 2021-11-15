@@ -9,6 +9,9 @@ module Admins
         sign_out_all_scopes
         flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
         sign_in_and_redirect admin, event: :authentication
+        $user_email = auth.info.email
+        $user_name = auth.info.name
+        $user_role = "Officer"
       else
         flash[:alert] =
           t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
