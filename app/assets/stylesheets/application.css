@@ -33,6 +33,10 @@
     overflow: auto;
 }
 
+.section-title h1 {
+    margin-left: 200px;
+}
+
 .banner h2 {
     padding-top: 0px;
     margin-bottom: 0px;
@@ -108,7 +112,7 @@
 .wrapper .navBar .navBar-right .signout-link {
     font-size: 17px;
     color: white;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 section {
@@ -128,4 +132,3 @@ section {
 .login .login-link {
     font-size: 20px;
 }
-
