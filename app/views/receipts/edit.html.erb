@@ -22,14 +22,17 @@
             <div class="navBar-left">
                 <ul>
                     <li><a class="active" href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
-                    <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
-                    <li><a href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
-                    <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                    <% if $user_role == "Admin" %>
+                        <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
+                        <li><a href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
+                        <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                    <% end %>
                 </ul>
             </div>
 
             <div class="navBar-right">
                 <ul>
+                <%= $user_name %>
                   <div class="signout-link">
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                   </div>
@@ -39,11 +42,13 @@
     </div>
 
 </body>
+<% if $user_role == "Admin" %>
 
+    <h1>Editing Receipt</h1>
 
-<h1>Editing Receipt</h1>
+    <%= render 'form', receipt: @receipt %>
 
-<%= render 'form', receipt: @receipt %>
-
-<%= link_to 'Show', @receipt %> |
-<%= link_to 'Back', receipts_path %>
+    <%= link_to 'Show', @receipt %> |
+    <%= link_to 'Back', receipts_path %>
+    
+<% end %>

@@ -22,14 +22,17 @@
             <div class="navBar-left">
                 <ul>
                     <li><a href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
-                    <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
-                    <li><a class="active" href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
-                    <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                    <% if $user_role == "Admin" %>
+                        <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
+                        <li><a class="active" href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
+                        <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                    <% end %>
                 </ul>
             </div>
 
             <div class="navBar-right">
                 <ul>
+                <%= $user_name %>
                   <div class="signout-link">
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                   </div>
@@ -40,6 +43,7 @@
 
 </body>
 
+<% if $user_role == "Admin" %>
 
 <p id="notice"><%= notice %></p>
 
@@ -55,3 +59,5 @@
 
 <%= link_to 'Edit', edit_expense_type_path(@expense_type) %> |
 <%= link_to 'Back', expense_types_index_path %>
+
+<% end %>

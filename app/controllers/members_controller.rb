@@ -19,6 +19,15 @@ class MembersController < ApplicationController
   def edit
   end
 
+  def find_user_role
+    @members = Member.all
+    @members.each do |member|
+      if member.email == $user_email
+        $user_role = member.role
+      end
+    end
+  end
+
   # POST /members or /members.json
   def create
     @member = Member.new(member_params)
