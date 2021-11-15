@@ -38,7 +38,8 @@
 
   <div class="field">
     <%= form.label :expense_type%>
-    <%= collection_select( :ExpenseType, :etype, ExpenseType.all, :etype, :etype, prompt: true) %>
+    <%= form.collection_select(:expense_type, ExpenseType.all, :etype, :etype, {:prompt => true})%>
+
   </div>
 
   <div class="actions">
