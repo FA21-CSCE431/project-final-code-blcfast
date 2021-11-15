@@ -6,9 +6,6 @@ module Admins
       admin = Admin.from_google(**from_google_params)
 
       if admin.present?
-        sign_out_all_scopes
-        flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
-        sign_in_and_redirect admin, event: :authentication
         $user_email = auth.info.email
         $user_name = auth.info.name
         $user_role = "outsider"
@@ -17,6 +14,15 @@ module Admins
         members_controller.response = response
         members_controller.find_user_role
 
+        if $user_role == "outsider"
+          flash[:alert] =
+          t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
+          redirect_to new_admin_session_path
+        else
+          sign_out_all_scopes
+          flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'
+          sign_in_and_redirect admin, event: :authentication
+        end
       else
         flash[:alert] =
           t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."

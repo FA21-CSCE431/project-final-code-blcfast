@@ -22,10 +22,10 @@
             <div class="navBar-left">
                 <ul>
                     <li><a href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
-                    <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
-                    <li><a class="active" href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
                     <% if $user_role == "Admin" %>
-                      <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                        <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
+                        <li><a class="active" href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
+                        <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
                     <% end %>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
     </div>
 
 </body>
-
+<% if $user_role == "Admin" %>
 
 <h1>Editing Expense Type</h1>
 
@@ -50,3 +50,5 @@
 
 <%= link_to 'Show', @expense_type %> |
 <%= link_to 'Back', expense_type_path %>
+
+<% end %>
