@@ -67,5 +67,10 @@
   <%= @receipt.status %>
 </p>
 
+<p>
+  <strong>Expense Type:</strong>
+  <%= @receipt.expense_type %>
+</p>
+
 <%= link_to 'Edit', edit_receipt_path(@receipt) %> |
 <%= link_to 'Back', receipts_path %>
