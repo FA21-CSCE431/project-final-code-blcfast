@@ -43,35 +43,35 @@
 
 </body>
 
-<% if $user_role == "Admin" %>
 
-    <p id="notice"><%= notice %></p>
 
-    <p>
-    <img src="<%= url_for(@receipt.picture) %>" width="300" height="400"/>
-    </p>
+<p id="notice"><%= notice %></p>
 
-    <p>
-    <strong>Reason:</strong>
-    <%= @receipt.reason %>
-    </p>
+<p>
+<img src="<%= url_for(@receipt.picture) %>" width="300" height="400"/>
+</p>
 
-    <p>
-    <strong>Amount:</strong>
-    $<%= @receipt.amount %>
-    </p>
+<p>
+<strong>Reason:</strong>
+<%= @receipt.reason %>
+</p>
 
-    <p>
-    <strong>Date of Transaction:</strong>
-    <%= @receipt.date %>
-    </p>
+<p>
+<strong>Amount:</strong>
+$<%= @receipt.amount %>
+</p>
 
-    <p>
-    <strong>Status:</strong>
-    <%= @receipt.status %>
-    </p>
+<p>
+<strong>Date of Transaction:</strong>
+<%= @receipt.date %>
+</p>
 
-    <%= link_to 'Edit', edit_receipt_path(@receipt) %> |
-    <%= link_to 'Back', receipts_path %>
-<% end %>
+<p>
+<strong>Status:</strong>
+<%= @receipt.status %>
+</p>
+
+<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+<%= link_to 'Back', receipts_path %>
+
 
