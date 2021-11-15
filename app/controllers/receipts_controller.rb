@@ -93,6 +93,6 @@ class ReceiptsController < ApplicationController # rubocop:todo Style/Documentat
 
   # Only allow a list of trusted parameters through.
   def receipt_params
-    params.require(:receipt).permit(:picture, :amount, :reason, :date, :status)
+    params.require(:receipt).permit(:picture, :amount, :reason, :date, :status, :expense_type)
   end
 end
