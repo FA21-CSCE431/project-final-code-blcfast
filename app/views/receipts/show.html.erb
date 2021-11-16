@@ -9,15 +9,6 @@
     <script src="translate.js"></script>
 </head>
 
-<style>
-  p {
-    margin-left: 200px;
-  }
-  .edit-back {
-    margin-left: 200px;
-  }
-</style>
-
 <body>
 
     <div class="wrapper">
@@ -41,7 +32,7 @@
 
             <div class="navBar-right">
                 <ul>
-                  <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
+                    <%= $user_name %>
                   <div class="signout-link">
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                   </div>
@@ -61,8 +52,8 @@
 </p>
 
 <p>
-<strong>Expense Type:</strong>
-<%= @receipt.expense_type %>
+<strong>Reason:</strong>
+<%= @receipt.reason %>
 </p>
 
 <p>
@@ -80,23 +71,7 @@ $<%= @receipt.amount %>
 <%= @receipt.status %>
 </p>
 
-<p>
-<strong>Description:</strong>
-<%= @receipt.reason %>
-</p>
-
-
-<div class= "edit-back">
-  <%= link_to 'Edit', edit_receipt_path(@receipt) %> |
-  <%= link_to 'Back', receipts_path %>
-</div>
-
-<body>
-    <center>
-      <div class="logo">
-        <%= image_tag("Untitled_Artwork.png", height: '420', width: '420', :alt => "BLC logo") %>
-      </div>
-    </center
-</body>
+<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+<%= link_to 'Back', receipts_path %>
 
 
