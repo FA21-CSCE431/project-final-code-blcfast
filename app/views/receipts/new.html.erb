@@ -32,7 +32,7 @@
 
             <div class="navBar-right">
                 <ul>
-                    <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
+                    <%= $user_name %>
                     <div class="signout-link">
                         <%= link_to "Sign Out", destroy_admin_session_path %>
                     </div>
@@ -43,18 +43,8 @@
 
 </body>
 
-<div class="section-title">
-    <h1>New Receipt</h1>
-</div>
+<h1>New Receipt</h1>
 
 <%= render 'form', receipt: @receipt %>
 
 <!-- <%= link_to 'Back', receipts_path %> -->
-
-<body>
-        <center>
-            <div class="logo">
-                <%= image_tag("Untitled_Artwork.png", height: '420', width: '420', :alt => "BLC logo") %>
-            </div>
-        </center>
-</body>
