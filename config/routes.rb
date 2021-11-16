@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
-  
   get 'expense_types/new'
   get 'expense_types/create'
   get 'expense_types/index'

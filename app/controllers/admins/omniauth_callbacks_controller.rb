@@ -8,15 +8,15 @@ module Admins
       if admin.present?
         $user_email = auth.info.email
         $user_name = auth.info.name
-        $user_role = "outsider"
+        $user_role = 'outsider'
         members_controller = MembersController.new
         members_controller.request = request
         members_controller.response = response
         members_controller.find_user_role
-        
-        if $user_role == "outsider"
+
+        if $user_role == 'outsider'
           flash[:alert] =
-          t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
+            t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
           redirect_to new_admin_session_path
         else
           sign_out_all_scopes
