@@ -1,0 +1,48 @@
+<%= form_with(model: receipt) do |form| %>
+  <% if receipt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
+
+      <ul>
+        <% receipt.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :picture %>
+    <%= form.file_field :picture %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reason %>
+    <%= form.text_field :reason %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date, "Date of Transaction" %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status%>
+    <%= form.select :status, ['Active', 'Completed'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expense_type%>
+    <%= form.collection_select(:expense_type, ExpenseType.all, :etype, :etype, {:prompt => true})%>
+
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

