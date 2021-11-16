@@ -22,7 +22,7 @@ class MembersController < ApplicationController
   def find_user_role
     # developer backdoor
     if $user_email == "blc.it.tamu@gmail.com"
-      $user_role = Admin
+      $user_role = "Admin"
     # main log in
     else
       @members = Member.all
