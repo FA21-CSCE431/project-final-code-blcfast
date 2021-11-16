@@ -1,12 +1,16 @@
 <style>
 table, th, td {
   border: 1px solid black;
+  margin-left: 200px;
 }
 th, td {
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
   padding-right: 10px;
+}
+.newMember {
+  margin-left: 200px;
 }
 </style>
 
@@ -46,7 +50,7 @@ th, td {
 
             <div class="navBar-right">
                 <ul>
-                <%= $user_name %>
+                <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
                   <div class="signout-link">
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                   </div>
@@ -58,7 +62,15 @@ th, td {
 </body>
 <% if $user_role == "Admin" %>
 
-<h1>Members</h1>
+<div class="section-title">
+  <h1>Officers</h1>
+</div>
+
+<div class="newMember">
+  <%= button_to 'New Member', new_member_path, method: :get %>
+</div>
+
+<br>
 
 
 <table>
@@ -86,8 +98,12 @@ th, td {
   </tbody>
 </table>
 
-<br>
-
-<%= button_to 'New Member', new_member_path, method: :get %>
+<body>
+  <center>
+    <div class="logo">
+      <%= image_tag("Untitled_Artwork.png", height: '420', width: '420', :alt => "BLC logo") %>
+    </div>
+  </center>
+</body> 
 
 <% end %>
