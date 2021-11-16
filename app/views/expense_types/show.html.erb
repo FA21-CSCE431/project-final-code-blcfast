@@ -1,0 +1,82 @@
+<head>
+    <title> BLCFAST </title>
+    <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="translate.css">
+    <link rel="stylesheet" id="style_sheet" type="text/css" href="style.css">
+    <script src="translate.js"></script>
+</head>
+
+<style>
+  p {
+    margin-left: 200px;
+  }
+  .edit-back {
+    margin-left: 200px;
+  }
+</style>
+
+<body>
+
+    <div class="wrapper">
+        <div class="titlebar">
+            <a>Business Leaders for Change</a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="navBar">
+            <div class="navBar-left">
+                <ul>
+                    <li><a href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
+                    <% if $user_role == "Admin" %>
+                        <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
+                        <li><a class="active" href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
+                        <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                    <% end %>
+                </ul>
+            </div>
+
+            <div class="navBar-right">
+                <ul>
+                <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
+                  <div class="signout-link">
+                    <%= link_to "Sign Out", destroy_admin_session_path %>
+                  </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<% if $user_role == "Admin" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Expense Type:</strong>
+  <%= @expense_type.etype %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @expense_type.description %>
+</p>
+
+<div class="edit-back">
+    <%= link_to 'Edit', edit_expense_type_path(@expense_type) %> |
+    <%= link_to 'Back', expense_types_index_path %>
+</div>
+
+<body>
+    <center>
+      <div class="logo">
+        <%= image_tag("Untitled_Artwork.png", height: '420', width: '420', :alt => "BLC logo") %>
+      </div>
+    </center
+</body> 
+
+<% end %>

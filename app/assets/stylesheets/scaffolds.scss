@@ -5,13 +5,13 @@ body {
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   line-height: 18px; }
 
 pre {
   background-color: #eee;
   padding: 10px;
-  font-size: 11px; }
+  font-size: 15px; }
 
 .login a {
   color: #000; }
@@ -30,7 +30,9 @@ pre {
 
 div.field,
 div.actions {
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  margin-left: 200px;
+  margin-top: 25px;  }
 
 #notice {
   color: green; }

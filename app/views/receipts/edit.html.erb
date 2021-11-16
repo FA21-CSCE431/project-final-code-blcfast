@@ -9,6 +9,12 @@
     <script src="translate.js"></script>
 </head>
 
+<style>
+  .show-back {
+    margin-left: 200px;
+  }
+</style>
+
 <body>
 
     <div class="wrapper">
@@ -21,15 +27,18 @@
         <div class="navBar">
             <div class="navBar-left">
                 <ul>
-                    <li><a class="active" href="<%= receipts_path %>" style="text-decoration: none;">Receipts</a></li>
-                    <li><a href="___.html.erb" style="text-decoration: none;">Reimbursement</a></li>
-                    <li><a href="___.html.erb" style="text-decoration: none;">Expense Types</a></li>
-                    <li><a href="___.html.erb" style="text-decoration: none;">Officers</a></li>
+                    <li><a class="active" href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
+                    <% if $user_role == "Admin" %>
+                        <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
+                        <li><a href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
+                        <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                    <% end %>
                 </ul>
             </div>
 
             <div class="navBar-right">
                 <ul>
+                <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
                   <div class="signout-link">
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                   </div>
@@ -39,11 +48,25 @@
     </div>
 
 </body>
+<% if $user_role == "Admin" %>
 
+  <div class="section-title">
+    <h1>Editing Receipt</h1>
+  </div>
 
-<h1>Editing Receipt</h1>
+    <%= render 'form', receipt: @receipt %>
 
-<%= render 'form', receipt: @receipt %>
+    <div class="show-back">
+      <%= link_to 'Show', @receipt %> |
+      <%= link_to 'Back', receipts_path %>
+    </div>
 
-<%= link_to 'Show', @receipt %> |
-<%= link_to 'Back', receipts_path %>
+    <body>
+        <center>
+          <div class="logo">
+            <%= image_tag("Untitled_Artwork.png", height: '420', width: '420', :alt => "BLC logo") %>
+          </div>
+        </center
+    </body> 
+    
+<% end %>
