@@ -50,7 +50,9 @@ th, td {
 
             <div class="navBar-right">
                 <ul>
-                <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
+                <% if $user_role == "Admin" %>
+                  <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
+                <% end %>
                   <div class="signout-link">
                     <%= link_to "Sign Out", destroy_admin_session_path %>
                   </div>
