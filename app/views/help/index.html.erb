@@ -1,0 +1,165 @@
+
+<head>
+    <title> BLCFAST </title>
+    <link rel="shortcut icon" type="image/x-icon" href="pic/iter.ico">
+    <meta name="description" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="translate.css">
+    <link rel="stylesheet" id="style_sheet" type="text/css" href="style.css">
+    <script src="translate.js"></script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="titlebar">
+            <a>Business Leaders for Change</a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="navBar">
+            <div class="navBar-left">
+                <ul>
+                    <li><a href="<%= new_receipt_path %>" style="text-decoration: none;">Receipts</a></li>
+                    <% if $user_role == "Admin" %>
+                        <li><a href="<%= receipts_path %>" style="text-decoration: none;">Reimbursement</a></li>
+                        <li><a href="<%= expense_types_index_path %>" style="text-decoration: none;">Expense Types</a></li>
+                        <li><a href="<%= members_path %>" style="text-decoration: none;">Officers</a></li>
+                        <li><a class="active" href="<%= help_index_path%>" style="text-decoration: none;">Help</a></li>
+                    <% end %>
+                </ul>
+            </div>
+
+            <div class="navBar-right">
+                <ul>
+                  <% if $user_role == "Admin" %>
+                    <a><%= $user_name %>, <%= $user_role %> &nbsp </a>
+                  <% end %>
+                  <div class="signout-link">
+                    <%= link_to "Sign Out", destroy_admin_session_path %>
+                  </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<div class="help">
+    <h1>How to Use</h1>
+
+    <h2>Logging In</h2>
+    <h3>Click the link on the login page and log in with your Google (tamu) account. You will only be able to log in if you are a registered user in the system. Admins can edit the list of registered users, including who has admin permissions.</h3>
+
+    <h2>Receipts Page</h2>
+    <h3>This is the only page which non-admins (regular officers) can access. This page allows you to submit a new receipt. Receipts are stored images of receipts with a corresponding expense type from a list which can be edited from the expense types index page, amount of money, date of the transaction, status, and description.</h3>
+    <h3>Creating a new receipt: </h3>
+    <ol>
+        <li>Click choose file and select the picture of your receipt (in the format .jpg or .png)</li>
+        <li>Select expense type from dropdown menu </li>
+        <li>Enter amount in $  </li>
+        <li>Select the date of the transaction from the drop down menus </li>
+        <li>Set the status to either active or completed </li>
+        <li>Give a basic description of what the receipt is for </li>
+        <li>Click “Create Receipt” </li>
+    </ol>
+
+    <h2>Reimbursement Page </h2>
+    <h3>The Reimbursement tab lists all receipts which have been created. This tab is only accessible by admins </h3>
+    <h3>Creating a new receipt:</h3>
+    <ol>
+        <li>From Receipts page, click “New Receipt” </li>
+        <li>Click choose file and select the picture of your receipt (in the format .jpg or .png) </li>
+        <li>Select expense type from dropdown menu </li>
+        <li>Enter amount in $  </li>
+        <li>Select the date of the transaction from the drop down menus </li>
+        <li>Set the status to either active or completed </li>
+        <li>Give a basic description of what the receipt is for </li>
+        <li>Click “Create Receipt” </li>
+        <li>If you wish to return without creating a new receipt, click the “Back” link </li>
+    </ol>
+
+    <h2>Expense Types Page</h2>
+    <h3>Expense types are labels which are given to receipts, and they contain only a name and a description. This tab is only accessible by admins. </h3>
+    <h3>Creating a new expense type: </h3>
+    <ol>
+        <li>Type the name of the expense type </li>
+        <li>Type the description of the expense type </li>
+        <li>Click “Create Expense Type” </li>
+        <li>If you wish to return without creating a new expense type, click the “Back” link </li>
+    </ol>
+
+    <h3>Showing a single expense type: </h3>
+    <ol>
+        <li>Click the “Show” link next to the desired expense type on the index page </li>
+        <li>All attributes will be listed </li>
+        <li>Click “Edit” to edit the expense type or “Back” to return to the index page </li>
+    </ol>
+
+    <h3>Editing an expense type: </h3>
+    <ol>
+        <li>Edit any of the fields you wish to change as you would when creating a new receipt </li>
+        <li>Click “Update Expense Type” </li>
+        <li>If you wish to return without editing the expense type, click the “Back” link </li>
+    </ol>
+
+    <h3>Deleting a expense type: </h3>
+    <ol>
+        <li>Click the “Delete” link for the expense type you wish to delete on the expense type index page </li>
+        <li>The page will ask if you are sure you want to delete the expense type, answer accordingly </li>
+    </ol>
+
+    <h2>Officers Page </h2>
+    <h3>Officers/members have the attributes of their name, their email, and their role in the club which determines whether they will have admin permissions or not. This tab is only accessible by admins. </h3>
+    <h3>Creating a new officer: </h3>
+    <ol>
+        <li>Type the name of the officer </li>
+        <li>Type the email associated with the officer </li>
+        <li>Set whether they are to be a regular officer or an admin </li>
+        <li>Click “Create Officer” </li>
+        <li>If you wish to return without creating a new officer, click the “Back” link </li>
+    </ol>
+
+    <h3>Showing a single officer: </h3>
+    <ol>
+        <li>Click the “Show” link next to the desired officer on the index page </li>
+        <li>All attributes will be listed </li>
+        <li>Click “Edit” to edit the officer or “Back” to return to the index page </li>
+    </ol>
+
+    <h3>Editing an officer: </h3>
+    <ol>
+        <li>Edit any of the fields you wish to change as you would when creating a new officer</li>
+        <li>Click “Update Officer” </li>
+        <li>If you wish to return without editing the officer, click the “Back” link </li>
+    </ol>
+
+    <h3>Deleting an officer: </h3>
+    <ol>
+        <li>Click the “Delete” link for the officer you wish to delete on the officer index page </li>
+        <li>The page will ask if you are sure you want to delete the officer, answer accordingly</li>
+    </ol>
+
+    <h2>Heroku</h2>
+    <h3>The BLC FAST application is hosted through Heroku. The Heroku is deployed via the GitHub and changes pushed to the repository are reflected after the application redeploys. </h3>
+
+    <h2>GitHub</h2>
+    <h3>The source code for the BLC FAST application is hosted on GitHub: https://github.com/FA21-CSCE431/project-sprint-3-blcfast .
+
+     This repository is only accessible as an approved user with access to the repository. </h3>
+
+    <h2>Database</h2>
+    <h3>The database for the BLC FAST application is PostgreSQL and database changes must be made through changes in the source code. An alteration can be made by making a new migration where additions and deletions of tables and columns can be made. The application must then be redeployed for database changes to be in effect. </h3>
+
+    <h2>Member Permissions</h2>
+    <h3>Admins- Admins are able to create new receipts, view all receipts, edit receipts, update reimbursement status, make changes to the expense types, and add or remove officers 
+
+    Officers- Officers are able to create new receipts and cannot view any other pages</h3>
+
+    <h2>Transferring ownership</h2>
+    <h3>To transfer ownership, add the new owner as an admin on the Officers page and have the new owner delete the previous owner from the officers list, or just change their role to officer. Transfer the Heroku over to the new owner and give them access to the GitHub repository. </h3>
+</div>
+
+

@@ -13,7 +13,7 @@ module Admins
         members_controller.request = request
         members_controller.response = response
         members_controller.find_user_role
-
+        
         if $user_role == 'outsider'
           flash[:alert] =
             t 'devise.omniauth_callbacks.failure', kind: 'Google', reason: "#{auth.info.email} is not authorized."
