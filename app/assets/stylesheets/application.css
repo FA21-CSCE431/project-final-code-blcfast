@@ -133,3 +133,7 @@ section {
     font-size: 20px;
 }
 
+.help {
+    max-width: 850px;
+    margin: auto;
+}
