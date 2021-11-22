@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'users/new'
   get 'users/create'
   get 'users/destroy'
+  get 'help/index'
   resources :members
   resources :receipts
   resources :expense_types
