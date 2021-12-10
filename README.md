@@ -2,7 +2,7 @@
 
 ## Introduction ##
 
-Application Description
+This application is a receipt tracker built for Business Leaders for Change at Texas A&M University. This app allows users to submit images of receipts along with information about the receipt, and admins of the app are able to manage these receipts as well as who can use the app and with what permissions. 
 
 ## Requirements ##
 
